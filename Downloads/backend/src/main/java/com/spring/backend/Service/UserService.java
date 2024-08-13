@@ -1,5 +1,7 @@
 package com.spring.backend.Service;
+import com.spring.backend.Entity.Task;
 import com.spring.backend.Entity.User;
+import com.spring.backend.Repository.TaskRepository;
 import com.spring.backend.Repository.UserRepository;
 import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private TaskRepository taskRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -30,4 +34,6 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+
 }
